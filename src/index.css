@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Baloo 2', 'Noto Sans Devanagari', sans-serif;
+    line-height: 1.6;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+  
+  .container-max {
+    @apply max-w-7xl mx-auto;
+  }
+  
+  .text-devanagari {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+  }
+  
+  .text-marathi {
+    font-family: 'Baloo 2', sans-serif;
+  }
+}
