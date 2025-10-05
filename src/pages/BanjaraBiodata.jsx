@@ -168,7 +168,7 @@ export default function BanjaraBiodata() {
               {/* Photo Placeholder */}
               <div className="aspect-[3/4] bg-gradient-to-br from-orange-100 to-red-100 flex items-center justify-center border-4 border-white">
                 <div className="text-center text-gray-400">
-                <img src="/Rahul rathod.jpg" />
+                <img src="/rahulrathod.jpg" />
                   <p className="text-sm"></p>
                 </div>
               </div>
