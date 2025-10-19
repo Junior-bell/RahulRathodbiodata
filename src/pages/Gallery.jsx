@@ -10,7 +10,7 @@ const Gallery = () => {
   const items = (biodata?.photos && biodata.photos.length)
     ? biodata.photos.map((p, i) => ({
         ...p,
-        src: p.src || `/Rahul_first.jpg` // fallback to first image if src is missing
+        src: p.src || '/Rahul_first.jpg' // fallback to first image if src is missing
       }))
     : [
         { id: 1, src: '/Rahul_first.jpg', alt: 'Rahul Rathod Photo 1' },
