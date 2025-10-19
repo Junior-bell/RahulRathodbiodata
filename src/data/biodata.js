@@ -1,8 +1,3 @@
-// Import images for better Vercel compatibility
-import RahulFirst from '/Rahul_first.jpg';
-import RahulSecond from '/Rahul_second.jpg';
-import RahulThird from '/Rahul_third.jpg';
-
 export const biodata = {
   personalInfo: {
     fullName: "राहुल राठोड ",
@@ -86,17 +81,17 @@ export const biodata = {
   photos: [
     {
       id: 1,
-      src: RahulFirst,
+      src: "/Rahul_first.jpg",
       alt: "Rahul Rathod Photo 1"
     },
     {
       id: 2,
-      src: RahulSecond, 
+      src: "/Rahul_second.jpg", 
       alt: "Rahul Rathod Photo 2"
     },
     {
       id: 3,
-      src: RahulThird,
+      src: "/Rahul_third.jpg",
       alt: "Rahul Rathod Photo 3"
     }
   ]
