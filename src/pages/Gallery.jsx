@@ -8,15 +8,20 @@ const Gallery = () => {
 
   // build items: use biodata.photos when valid, otherwise use fallback
   const items = (biodata?.photos && biodata.photos.length)
-    ? biodata.photos.map((p, i) => ({
-        ...p,
-        src: p.src || '/Rahul_first.jpg' // fallback to first image if src is missing
-      }))
+    ? biodata.photos.map((p, i) => {
+        console.log('Photo src:', p.src); // Debug log
+        return {
+          ...p,
+          src: p.src || '/Rahul_first.jpg' // fallback to first image if src is missing
+        };
+      })
     : [
         { id: 1, src: '/Rahul_first.jpg', alt: 'Rahul Rathod Photo 1' },
         { id: 2, src: '/Rahul_second.jpg', alt: 'Rahul Rathod Photo 2' },
         { id: 3, src: '/Rahul_third.jpg', alt: 'Rahul Rathod Photo 3' }
       ];
+
+  console.log('Gallery items:', items); // Debug log
 
   const openModal = (index) => {
     setSelectedImage(items[index]);
