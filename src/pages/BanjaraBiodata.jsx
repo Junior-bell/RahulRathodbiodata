@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Calendar, Heart, User, Users, GraduationCap, Home } from 'lucide-react';
-import RahulRathodImage from '../assets/images/Rahul_rathod.jpg?url';
+import RahulRathodImage from '../assets/images/Rahul_rathod.jpg';
 
 function DetailRow({ label, value, highlight = false }) {
   return (

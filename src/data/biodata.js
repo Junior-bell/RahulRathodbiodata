@@ -1,7 +1,7 @@
-// Import images using explicit URL imports for better compatibility
-import RahulFirst from '../assets/images/Rahul_first.jpg?url';
-import RahulSecond from '../assets/images/Rahul_second.jpg?url';
-import RahulThird from '../assets/images/Rahul_third.jpg?url';
+// Import images using standard imports for better Vercel compatibility
+import RahulFirst from '../assets/images/Rahul_first.jpg';
+import RahulSecond from '../assets/images/Rahul_second.jpg';
+import RahulThird from '../assets/images/Rahul_third.jpg';
 
 export const biodata = {
   personalInfo: {
