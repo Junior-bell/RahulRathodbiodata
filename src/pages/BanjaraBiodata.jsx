@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Calendar, Heart, User, Users, GraduationCap, Home } from 'lucide-react';
+import RahulRathodImage from '../assets/images/Rahul_rathod.jpg?url';
 
 function DetailRow({ label, value, highlight = false }) {
   return (
@@ -165,12 +166,9 @@ export default function BanjaraBiodata() {
                 {personal.name}
               </div>
               
-              {/* Photo Placeholder */}
-              <div className="aspect-[3/4] bg-gradient-to-br from-orange-100 to-red-100 flex items-center justify-center border-4 border-white">
-                <div className="text-center text-gray-400">
-                <img src="/Rahul_rathod.jpg" />
-                  <p className="text-sm"></p>
-                </div>
+              {/* Photo */}
+              <div className="aspect-[3/4] bg-gradient-to-br from-orange-100 to-red-100 flex items-center justify-center border-4 border-white overflow-hidden">
+                <img src={RahulRathodImage} alt="Rahul Rathod" className="w-full h-full object-cover" />
               </div>
 
               {/* Quick Info */}
