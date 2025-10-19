@@ -6,27 +6,37 @@ const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const photos = biodata.photos;
+  // build items: use biodata.photos when valid, otherwise use fallback
+  const items = (biodata?.photos && biodata.photos.length)
+    ? biodata.photos.map((p, i) => ({
+        ...p,
+        src: p.src || `/Rahul_first.jpg` // fallback to first image if src is missing
+      }))
+    : [
+        { id: 1, src: '/Rahul_first.jpg', alt: 'Rahul Rathod Photo 1' },
+        { id: 2, src: '/Rahul_second.jpg', alt: 'Rahul Rathod Photo 2' },
+        { id: 3, src: '/Rahul_third.jpg', alt: 'Rahul Rathod Photo 3' }
+      ];
 
   const openModal = (index) => {
-    setSelectedImage(photos[index]);
+    setSelectedImage(items[index]);
     setCurrentIndex(index);
   };
 
-  const closeModal = () => {
-    setSelectedImage(null);
-  };
+  const closeModal = () => setSelectedImage(null);
 
   const nextImage = () => {
-    const nextIndex = (currentIndex + 1) % photos.length;
+    if (!items.length) return;
+    const nextIndex = (currentIndex + 1) % items.length;
     setCurrentIndex(nextIndex);
-    setSelectedImage(photos[nextIndex]);
+    setSelectedImage(items[nextIndex]);
   };
 
   const prevImage = () => {
-    const prevIndex = (currentIndex - 1 + photos.length) % photos.length;
+    if (!items.length) return;
+    const prevIndex = (currentIndex - 1 + items.length) % items.length;
     setCurrentIndex(prevIndex);
-    setSelectedImage(photos[prevIndex]);
+    setSelectedImage(items[prevIndex]);
   };
 
   return (
@@ -58,17 +68,19 @@ const Gallery = () => {
 
           {/* Photo Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {photos.map((photo, index) => (
+            {items.map((photo, index) => (
               <div 
-                key={photo.id}
+                key={photo.id || index}
                 className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer group"
                 onClick={() => openModal(index)}
               >
-                {/* Placeholder for actual image */}
-                <div className="aspect-square bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center relative overflow-hidden">
-                  <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-                    <span className="text-4xl font-bold text-white">र</span>
-                  </div>
+                {/* Actual image */}
+                <div className="aspect-square relative overflow-hidden">
+                  <img
+                    src={photo.src}
+                    alt={photo.alt || `Photo ${index + 1}`}
+                    className="w-full h-full object-cover absolute inset-0"
+                  />
                   {/* Overlay */}
                   <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
                     <div className="w-12 h-12 bg-white bg-opacity-90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -82,7 +94,7 @@ const Gallery = () => {
                     {photo.alt}
                   </h3>
                   <p className="text-sm text-gray-600">
-                    क्लिक करून मोठे पहा
+                    क्लिक करून मोठा करा
                   </p>
                 </div>
               </div>
@@ -135,10 +147,12 @@ const Gallery = () => {
 
               {/* Image Container */}
               <div className="bg-white rounded-lg overflow-hidden">
-                <div className="aspect-square bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
-                  <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-                    <span className="text-6xl font-bold text-white">र</span>
-                  </div>
+                <div className="aspect-square bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center relative overflow-hidden">
+                  <img
+                    src={selectedImage.src}
+                    alt={selectedImage.alt || `Photo ${currentIndex + 1}`}
+                    className="w-full h-full object-cover absolute inset-0"
+                  />
                 </div>
                 
                 <div className="p-6 text-center">
@@ -146,7 +160,7 @@ const Gallery = () => {
                     {selectedImage.alt}
                   </h3>
                   <p className="text-gray-600">
-                    {currentIndex + 1} / {photos.length}
+                    {currentIndex + 1} / {items.length}
                   </p>
                 </div>
               </div>

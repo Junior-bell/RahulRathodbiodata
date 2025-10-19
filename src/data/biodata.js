@@ -81,17 +81,17 @@ export const biodata = {
   photos: [
     {
       id: 1,
-      src: "/images/rahul-1.jpg",
+      src: "/Rahul_first.jpg",
       alt: "Rahul Rathod Photo 1"
     },
     {
       id: 2,
-      src: "/images/rahul-2.jpg", 
+      src: "/Rahul_second.jpg", 
       alt: "Rahul Rathod Photo 2"
     },
     {
       id: 3,
-      src: "/images/rahul-3.jpg",
+      src: "/Rahul_third.jpg",
       alt: "Rahul Rathod Photo 3"
     }
   ]
